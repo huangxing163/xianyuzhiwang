@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="header">
+    <text class="title">分团计算器</text>
+    <text class="subtitle">根据俱乐部人员红、战力，合理规划分团的红、战力</text>
+    <text class="warning">此页面所有数据为临时数据，不会保存到云端</text>
+    <text class="warning">数据存储于本地,清除存储或者换设备后消失</text>
+  </view>
+
+  <view class="add-section">
+    <button bindtap="showAddModal" class="add-btn">添加成员</button>
+    <button bindtap="showBatchAddModal" class="add-btn">批量添加</button>
+  </view>
+
+  <view class="team-list">
+    <block wx:for="{{teams}}" wx:key="index">
+      <view class="team-header" bindtap="toggleTeam" data-team="{{index+1}}">
+        <text>{{index + 1}}团</text>
+        <text>{{item.totalPower}}亿</text>
+        <text>{{item.totalRed}}红</text>
+        <text>{{item.members.length}}人</text>
+      </view>
+      <view class="member-list" wx:if="{{item.expanded}}">
+        <view class="member-item" wx:for="{{item.members}}" wx:key="name" wx:for-item="member">
+          <text>{{member.name}}</text>
+          <text>{{member.power}}亿</text>
+          <text>{{member.red}}红</text>
+          <view class="operations">
+            <text bindtap="editMember" data-member="{{member}}">编辑</text>
+            <text bindtap="deleteMember" data-name="{{member.name}}">删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 添加成员弹窗 -->
+<view class="modal" wx:if="{{showAddModal}}">
+  <view class="modal-content">
+    <view class="modal-header">添加成员</view>
+    <input placeholder="名称" model:value="{{newMember.name}}"/>
+    <input type="number" placeholder="红数量" model:value="{{newMember.red}}"/>
+    <input type="digit" placeholder="战力(亿)" model:value="{{newMember.power}}"/>
+    <view class="modal-buttons">
+      <button bindtap="cancelAdd">取消</button>
+      <button bindtap="confirmAdd">确定</button>
+    </view>
+  </view>
+</view> 

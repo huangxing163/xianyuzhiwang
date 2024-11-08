@@ -1,0 +1,67 @@
+.container {
+  padding: 20rpx;
+  background-color: #FFF5F5;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitle, .warning {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+.team-header {
+  background-color: #FFCCCC;
+  padding: 20rpx;
+  margin: 10rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.member-item {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #FFE4E4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-btn {
+  background-color: #FF9999;
+  color: white;
+  margin: 20rpx;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  width: 80%;
+}
+
+.modal-content input {
+  border: 1rpx solid #ddd;
+  padding: 10rpx;
+  margin: 10rpx 0;
+} 
